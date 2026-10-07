@@ -95,16 +95,6 @@ Voir `lab/lab-guide.md` pour le détail des 7 phases :
 6. Restauration + teardown
 7. Publication (README, writeup, captures Chainsaw)
 
-## Positionnement LinkedIn / CV
-
-- **Titre suggéré** : *Detection Engineering | Adversary Simulation | Blue Team*
-- **Bullet CV** : « Conçu un simulateur de rançongiciel safe-by-design avec
-  decryptor (Fernet, périmètre canary) ; développé et **validé** un pack de
-  détection complet — Sysmon, 3 règles Sigma, règle YARA — en lab isolé
-  Windows/Kali ; restaurations vérifiées par checksum. »
-- **Preuves à publier** : captures Chainsaw (3 matches), sortie
-  `validate_detection.ps1` (5 PASS), YARA hit, checklist 16/16.
-
 ## Avertissement
 
 Outil destiné aux labs isolés dont vous avez le contrôle. L'utiliser sur des

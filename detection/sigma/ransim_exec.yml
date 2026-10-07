@@ -1,0 +1,29 @@
+title: RANSOMWARE_SIM Execution
+id: 7f2c1a4e-9b3d-4c8e-a1f0-5d6e7b8c9a01
+status: experimental
+description: >
+  Détecte l'exécution du simulateur de rançongiciel RANSOMWARE_SIM.
+  Utile pour valider la chaîne de détection Sysmon->Sigma en lab.
+references:
+  - https://attack.mitre.org/techniques/T1486/
+author: Lab operator
+date: 2026/10/07
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection_cmd:
+    EventID: 1
+    CommandLine|contains: 'ransomware_sim'
+  selection_img:
+    EventID: 1
+    Image|endswith:
+      - '\ransim.exe'
+      - '\update.exe'
+  condition: 1 of selection_*
+falsepositives:
+  - Opérateur du lab lui-même
+level: high
+tags:
+  - attack.impact
+  - attack.t1486

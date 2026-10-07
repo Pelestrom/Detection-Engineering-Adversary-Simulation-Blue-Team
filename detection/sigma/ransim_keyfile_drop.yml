@@ -1,0 +1,22 @@
+title: Suspicious Key File Drop - ransim_key
+id: 9d4a7c1b-2e5f-4a3d-8b9c-0f1e2d3c4b03
+status: experimental
+description: >
+  Création d'un fichier de clef nommé ransim_key*. Dans la vraie vie,
+  ce pattern correspond à une clef générée localement par un chiffreur.
+author: Lab operator
+date: 2026/10/07
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection:
+    EventID: 11
+    TargetFilename|contains: 'ransim_key'
+  condition: selection
+falsepositives:
+  - Artefacts du lab
+level: medium
+tags:
+  - attack.impact
+  - attack.t1486

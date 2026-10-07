@@ -1,0 +1,21 @@
+<!-- Sysmon config LAB - visibilite maximale pour valider les detections RANSIM -->
+<Sysmon schemaversion="4.90">
+  <HashAlgorithms>sha256,imphash</HashAlgorithms>
+  <LogRemoteConnectEvents>false</LogRemoteConnectEvents>
+  <EventFiltering>
+    <!-- 1: creation de processus (tout logger en lab) -->
+    <ProcessCreate onmatch="exclude"/>
+    <!-- 2: changement d'heure de fichier -->
+    <FileCreateTime onmatch="exclude"/>
+    <!-- 3: connexion reseau (utile pour prouver que le sim ne communique pas) -->
+    <NetworkConnect onmatch="exclude"/>
+    <!-- 11: creation de fichier (note de rancon, clef, fichiers .ransim) -->
+    <FileCreate onmatch="exclude"/>
+    <!-- 12/13: evenements registre (Run keys) -->
+    <RegistryEvent onmatch="exclude"/>
+    <!-- 15: alternated data streams -->
+    <FileCreateStreamHash onmatch="exclude"/>
+    <!-- 23: suppression de fichier -->
+    <FileDelete onmatch="exclude"/>
+  </EventFiltering>
+</Sysmon>

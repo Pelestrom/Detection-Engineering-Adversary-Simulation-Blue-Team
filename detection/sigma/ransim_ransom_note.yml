@@ -1,0 +1,24 @@
+title: Ransom Note Drop - README_RESTORE_FILES.txt
+id: 3b8e5f2a-1c4d-4e7b-9f60-8a7b6c5d4e02
+status: experimental
+description: >
+  Dépose d'une note de rançon (nom de fichier utilisé par RANSOMWARE_SIM
+  mais aussi observé chez de vraies familles). Signal précoce d'impact.
+references:
+  - https://attack.mitre.org/techniques/T1486/
+author: Lab operator
+date: 2026/10/07
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection:
+    EventID: 11
+    TargetFilename|endswith: '\README_RESTORE_FILES.txt'
+  condition: selection
+falsepositives:
+  - Exercices de simulation annoncés
+level: critical
+tags:
+  - attack.impact
+  - attack.t1486
